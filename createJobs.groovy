@@ -1,8 +1,14 @@
-pipelineJob('pipelineJob') {
+pipelineJob('spring-boot-app-job') {
     definition {
-        cps {
-            script(readFileFromWorkspace('pipelineJob.groovy'))
-            sandbox()
+        cpsScm {
+            scm {
+                git {
+                    remote {
+                        url 'https://github.com/ajitsangwan2006/spring-boot-app.git'
+                    }
+                    branch 'main'
+                }
+            }
         }
     }
 }
